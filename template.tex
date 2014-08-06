@@ -1,0 +1,199 @@
+\documentclass[xcolor=table,slidestop,compress,mathserif]{beamer}
+\usepackage[no-math]{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont={Adobe Heiti Std}]{Adobe Song Std}
+\punctstyle{kaiming}
+\usepackage{amssymb}
+\usepackage{listings}
+\setbeamertemplate{items}[circle]
+\usetheme{Warsaw}
+% \usetheme{Montpellier}
+% \usetheme{Madrid}
+% \usetheme{Singapore}
+\usepackage{graphicx}
+% added by https://github.com/farseerfc/bm-chapter8/blob/master/chapter8.tex
+\lstset{tabsize=4, %
+  frame=shadowbox, %把代码用带有阴影的框圈起来
+  commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
+  rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
+  keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
+  showstringspaces=false,%不显示代码字符串中间的空格标记
+  stringstyle=\ttfamily, % 代码字符串的特殊格式
+  keepspaces=true, %
+  breakindent=22pt, %
+  numbers=left,%左侧显示行号
+  stepnumber=1,%
+  numberstyle=\tiny, %行号字体用小号
+  basicstyle=\footnotesize, %
+  showspaces=false, %
+  flexiblecolumns=true, %
+  breaklines=true, %对过长的代码自动换行
+  breakautoindent=true,%
+  breakindent=4em, %
+  aboveskip=1em, %代码块边框
+  %% added by http://bbs.ctex.org/viewthread.php?tid=53451
+  fontadjust,
+  captionpos=t,
+  framextopmargin=2pt,framexbottommargin=2pt,abovecaptionskip=-3pt,belowcaptionskip=3pt,
+  % xleftmargin=4em,xrightmargin=4em, % 设定listing左右的空白
+  texcl=true,
+  % 设定中文冲突，断行，列模式，数学环境输入，listing数字的样式
+  extendedchars=false,columns=flexible,mathescape=true
+  numbersep=-1em
+}
+
+\pgfdeclareimage[height=0.618cm]{logo}{figures/sjtulogoblue.png}
+\logo{\pgfuseimage{logo}}
+
+\def\hilite<#1>{%
+  \temporal<#1>{\color{gray}}{\color{blue}}%
+  {\color{blue!25}}}
+% ------------------------------------------
+\title{beamer}
+\author{Quanyang Liu}
+\institute{abcd}
+\date{\today}
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}<beamer>[shrink=10]{Outline}
+  \tableofcontents[sectionstyle=show,subsectionstyle=hide]
+\end{frame}
+
+\AtBeginSubsection[]{
+  \begin{frame}<trans|beamer>[shrink=25]{Outline}
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide]
+  \end{frame}}
+% ------------------------------------------
+\section{one}
+\subsection{a}
+\begin{frame}
+  \frametitle{title test}
+  \begin{enumerate}
+    \pause \item ahh
+    \pause \item 2333
+    \begin{displaymath}
+      \lim_{x \to 0} \frac{ \sin x}{x} = 0
+    \end{displaymath}
+  \end{enumerate}
+\end{frame}
+% ------------------------------------------
+\subsection{b}
+\begin{frame}
+  \frametitle{2333}
+  \pause
+  \begin{equation}
+    \sum_{i=1}^n \frac{1}{n!} = \mathrm{e}
+  \end{equation}
+\end{frame}
+% ------------------------------------------
+% \section{three}
+% \begin{frame}
+%   \pgfdeclareimage[width=\textwidth]{checklist}{2014-07-15-183139_1366x768_scrot.png}
+%   \begin{figure}
+%     \pgfuseimage{checklist}
+%   \end{figure}
+% \end{frame}
+% ------------------------------------------
+% \begin{frame}
+%   \centering
+%   \includegraphics[width=\textwidth]{sjtulogoblue.png}
+% \end{frame}
+% ------------------------------------------
+\section{a}
+\subsection{aa}
+\begin{frame}
+  \setbeamercolor{uppercol}{fg=white,bg=green!50!gray}%
+  \setbeamercolor{lowercol}{fg=black,bg=green!20}%
+  \begin{columns}[c]
+    \begin{column}{0.4\textwidth}
+      \begin{beamerboxesrounded}[upper=uppercol,lower=lowercol,shadow=true]{Theorem}
+        $A = B$ \\
+        $B = C$
+      \end{beamerboxesrounded}
+    \end{column}
+    \pause
+    \begin{column}{0.05\textwidth}
+      \centering
+      $\Rightarrow$
+    \end{column}
+    \pause
+    \begin{column}{0.4\textwidth}
+      \begin{beamerboxesrounded}{Theorem}
+        $A=C?$
+      \end{beamerboxesrounded}
+    \end{column}
+  \end{columns}
+\end{frame}
+% ------------------------------------------
+\begin{frame}
+  \rowcolors[]{1}{blue!20}{blue!10}
+  \begin{tabular}{l!{\vrule}c
+      <{\onslide<2->}c
+      <{\onslide<3->}c
+      <{\onslide<4->}c
+      <{\onslide}c}
+    Class & A & B & C & D \\
+    X     & 1 & 2 & 3 & 4 \\
+    Y     & 3 & 4 & 5 & 6 \\
+    Z     & 5 & 6 & 7 & 8
+  \end{tabular}
+  \begin{enumerate}
+  \item<5->
+  \item<6->
+  \item<7->
+  \end{enumerate}
+  \hypertarget{abcd}{}
+\end{frame}
+% ------------------------------------------
+\subsection{bb}
+\begin{frame}
+  \begin{itemize}
+    \hilite<1> \item Everything
+    \hilite<2> \item that has
+    \hilite<3> \item beginning
+    \hilite<4> \item has end.
+  \end{itemize}
+  \hyperlink{abcd}{\beamergotobutton{abcd}}
+\end{frame}
+% ------------------------------------------
+\begin{frame}[fragile]
+  \frametitle{title}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      test
+    \end{column}
+    \pause
+    \begin{column}{0.5\textwidth}
+      \begin{lstlisting}[language=C,escapechar=@]
+#include <stdio.h>
+
+int main(int argc, char *argv[5])
+{
+  int i = 0; //ajbk
+  scanf("%d", i);
+  return 0;
+}
+    \end{lstlisting}
+    \end{column}
+  \end{columns}
+\end{frame}
+% ------------------------------------------
+\setbeamertemplate{background canvas}[vertical shading]
+[bottom=white,top=structure.fg!25]
+\begin{frame}
+  \begin{center}
+    {\huge \emph{\textcolor[rgb]{0.50,0.00,1.00}{Thank  ~you!
+          \\   \vspace{1cm} Any Question?}}}
+  \end{center}
+  \vspace{1.5cm}\large
+  \begin{flushright}
+    \begin{tabular}{ll}
+      {\sc Author}: & \textsf{Quanyang Liu}\\
+      {\sc Email}: & \href{mailto:lqymgt@sjtu.edu.cn}
+      {\color{blue!70}lqymgt@sjtu.edu.cn}\\
+    \end{tabular}
+  \end{flushright}
+\end{frame}
+% ------------------------------------------
+\end{document}

@@ -1,0 +1,1 @@
+A beamer template with SJTU logo.
