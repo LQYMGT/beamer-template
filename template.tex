@@ -7,6 +7,17 @@
 \usepackage{listings}
 \setbeamertemplate{items}[circle]
 \usetheme{Warsaw}
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortinstitute\hfill\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle\hfill\insertframenumber\,/\,\inserttotalframenumber%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
 % \usetheme{Montpellier}
 % \usetheme{Madrid}
 % \usetheme{Singapore}
@@ -49,9 +60,10 @@
   \temporal<#1>{\color{gray}}{\color{blue}}%
   {\color{blue!25}}}
 % ------------------------------------------
-\title{beamer}
+\title{Beamer Template}
 \author{Quanyang Liu}
-\institute{abcd}
+\institute[CS SJTU]{Department of Computer Science and Engineering \\ Shanghai
+  Jiao Tong University}
 \date{\today}
 \begin{document}
 \frame{\titlepage}
@@ -190,8 +202,8 @@ int main(int argc, char *argv[5])
   \begin{flushright}
     \begin{tabular}{ll}
       {\sc Author}: & \textsf{Quanyang Liu}\\
-      {\sc Email}: & \href{mailto:lqymgt@sjtu.edu.cn}
-      {\color{blue!70}lqymgt@sjtu.edu.cn}\\
+      {\sc Email}: & \href{mailto:lqymgt@gmail.com}
+      {\color{blue!70}lqymgt@gmail.com}\\
     \end{tabular}
   \end{flushright}
 \end{frame}
